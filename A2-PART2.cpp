@@ -1,2 +1,6 @@
+#include <iostream>
 
-//test git 
+int main() {
+    std::cout << "A2 starter: program boots.\n";
+    return 0;
+}
