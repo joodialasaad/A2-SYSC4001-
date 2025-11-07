@@ -1,5 +1,7 @@
 #include <iostream>
 #include <unistd.h>  //to get pid 
+#include <sys/wait.h> 
+
 
 int main() {
     pid_t pid = fork(); 
