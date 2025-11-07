@@ -3,6 +3,9 @@
 
 int main() {
     pid_t pid = fork(); 
-    std::cout << "Process started. PID = " << getpid() << std::endl;
-    return 0;
+    
+    if (pid < 0) {
+        std::cerr << "Fork failed!" << std::endl;
+        return 1;
+    }
 }
