@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-// Joodi Al-Asaad 
+// Joodi Al-Asaad
 // Aryan Singh
 
 int main() {
@@ -11,12 +11,12 @@ int main() {
     if (pid < 0) {
         std::cerr << "Fork failed!" << std::endl;
         return 1;
-    }
+    } 
     else if (pid == 0) {
         execl("./process2", "process2", nullptr);
         std::cerr << "Exec failed!" << std::endl;
         return 1;
-    }
+    } 
     else {
         int counter = 0;
         while (true) {
@@ -28,6 +28,10 @@ int main() {
             counter++;
             sleep(1);
         }
+
+        wait(nullptr);
+        std::cout << "Parent: Child process has finished, parent ending too." << std::endl;
     }
+
     return 0;
 }
