@@ -11,5 +11,11 @@ int main() {
     else if (pid == 0){
         std::cout << "Child process: PID = " << getpid() << ", Parent PID = " << getppid() << std::endl;
     }
-    
+
+    else {
+        std::cout << "Parent process: PID = " << getpid() << ", Child PID = " << pid << std::endl;
+    }
+
+    return 0; 
+
 }
