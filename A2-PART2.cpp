@@ -44,8 +44,7 @@ int main() {
     else {
         while (data->counter <= 50) {
             if (data->counter % data->multiple == 0)
-                std::cout << "Parent: " << data->counter << " is a multiple of " 
-                          << data->multiple << std::endl;
+                std::cout << "Parent: " << data->counter << " is a multiple of " << data->multiple << std::endl;
             else
                 std::cout << "Parent: counter = " << data->counter << std::endl;
 
