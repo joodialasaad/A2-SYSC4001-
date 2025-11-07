@@ -8,13 +8,20 @@ int main() {
         std::cerr << "Fork failed!" << std::endl;
         return 1;
     }
-    else if (pid == 0){
-        std::cout << "Child process: PID = " << getpid() << ", Parent PID = " << getppid() << std::endl;
+    else if (pid == 0) {
+        for (int i = 0; i < 5; ++i) {
+            std::cout << "Child process: iteration " << i 
+                    << ", PID = " << getpid() << std::endl;
+            sleep(1);
+        }
+    } else {
+        for (int i = 0; i < 5; ++i) {
+            std::cout << "Parent process: iteration " << i 
+                    << ", PID = " << getpid() << std::endl;
+            sleep(1);
+        }
     }
 
-    else {
-        std::cout << "Parent process: PID = " << getpid() << ", Child PID = " << pid << std::endl;
-    }
 
     return 0; 
 
