@@ -1,26 +1,30 @@
 #include <iostream>
-#include <unistd.h>   
-#include <sys/wait.h> 
+#include <unistd.h>
+#include <sys/wait.h>
+
+// Joodi Al-Asaad 
+// Aryan Singh
 
 int main() {
-    pid_t pid = fork(); 
+    pid_t pid = fork();
 
     if (pid < 0) {
         std::cerr << "Fork failed!" << std::endl;
         return 1;
     }
     else if (pid == 0) {
-        int counter = 0;
-        while (true) {
-            std::cout << "Process 2 (child): counter = " << counter << ", PID = " << getpid() << std::endl;
-            counter++;
-            sleep(1); 
-        }
-    } 
+        execl("./process2", "process2", nullptr);
+        std::cerr << "Exec failed!" << std::endl;
+        return 1;
+    }
     else {
         int counter = 0;
         while (true) {
-            std::cout << "Process 1 (parent): counter = " << counter << ", PID = " << getpid() << std::endl;
+            if (counter % 3 == 0)
+                std::cout << "Cycle number: " << counter << " – " << counter << " is a multiple of 3" << std::endl;
+            else
+                std::cout << "Cycle number: " << counter << std::endl;
+
             counter++;
             sleep(1);
         }
