@@ -32,6 +32,8 @@ void sem_signal(int semid) {
     semop(semid, &op, 1);
 }
 
+
+
 int main() {
     key_t key = ftok("A2-PART2.cpp", 65);
     int shmid = shmget(key, sizeof(SharedData), 0666 | IPC_CREAT);
