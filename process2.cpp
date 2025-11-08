@@ -8,6 +8,7 @@
 // Joodi Al-Asaad
 // Aryan Singh
 
+
 struct SharedData {
     int multiple;
     int counter;
@@ -37,6 +38,7 @@ int main() {
         std::cerr << "Child: Shared memory attach failed!" << std::endl;
         return 1;
     }
+
 
     while (true) {
         sem_wait(semid);
