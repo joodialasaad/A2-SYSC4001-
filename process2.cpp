@@ -30,12 +30,13 @@ int main() {
         std::cout << "Child waiting... counter = " << data->counter << std::endl;
         sleep(1);
     }
-    while (data->counter <= 50) {
+
+    while (data->counter <= 150) {
         std::cout << "Child: counter = " << data->counter << ", multiple = " << data->multiple << std::endl;
         sleep(1);
     }
 
-    std::cout << "Child: counter > 50, detaching shared memory and exiting." << std::endl;
+    std::cout << "Child: counter > 150, detaching shared memory and exiting." << std::endl;
     shmdt(data);
 
     return 0;
