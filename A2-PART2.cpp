@@ -27,8 +27,8 @@ int main() {
         return 1;
     }
 
-    data->multiple = 3;   // the multiple to check
-    data->counter = 0;    // shared counter
+    data->multiple = 3;
+    data->counter = 0;
 
     pid_t pid = fork();
 
@@ -42,11 +42,9 @@ int main() {
         return 1;
     } 
     else {
-        // Parent process
         while (data->counter <= 150) {
             if (data->counter % data->multiple == 0)
-                std::cout << "Parent: " << data->counter << " is a multiple of " 
-                          << data->multiple << std::endl;
+                std::cout << "Parent: " << data->counter << " is a multiple of " << data->multiple << std::endl;
             else
                 std::cout << "Parent: counter = " << data->counter << std::endl;
 
@@ -56,7 +54,6 @@ int main() {
 
         wait(nullptr);
         std::cout << "Parent: counter > 150, cleaning up shared memory." << std::endl;
-
         shmdt(data);
         shmctl(shmid, IPC_RMID, nullptr);
     }
